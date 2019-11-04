@@ -3,7 +3,6 @@
 #include <vector>
 #include <string>
 using namespace std;
-//https://github.com/morris821028/UVa/blob/master/volume112/11239%20-%20Open%20Source.cpp#L14
 class proy{
   public:
     string name;
@@ -48,7 +47,5 @@ int main(){
             }
           }
         }
-   //falta sortearlos
-   
    }
 }
