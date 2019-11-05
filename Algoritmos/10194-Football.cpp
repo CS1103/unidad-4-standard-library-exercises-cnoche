@@ -57,7 +57,7 @@ int main (){
         cin >> games;
         cin.ignore();
         while(games--){
-            //falta lol
+            //faltä
         }
     }
 }

@@ -23,6 +23,6 @@ int main(){
                 }
             }
         }
-        cout << "train swaps" << swap << endl;
+        cout << "optimal train swaps" << swap << endl;
     }
 }
