@@ -1,14 +1,14 @@
 #include <iostream>
-#include <stdio.h>
-
+using namespace std;
 int main (){
     int input;
-    while(std::cin >> input){
+    while(cin >> input){
         int output;
         for (int i = 0; i < 4; i++){
-            output = (output << 8) | (( input >> (8*i))&256);
+            output = input << 24 | ((255 << 8) & input) << 8 | ((255 << 16) & input) >> 8 | (input >> 24) & 255;
+            cout << output << endl;
         }
-        std::cout << input << "converts to" << output << std::endl;
+        cout << input << " converts to " << output << endl;
     }
 }
 

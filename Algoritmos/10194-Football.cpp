@@ -4,24 +4,27 @@
 #include <vector>
 #include <stdio.h>
 #include <map>
+#include <algorithm>
 
 using namespace std;
 struct team {
     char name[100];
     int pt, win, lose, tie, score, invscore;
 
-     void record(int a, int b) {
-        if(a > b){
-            win++, pt += 3;
-        } else if(a < b){
-            lose++;
+        void init(){
+            pt, win, lose, tie, score, invscore = 0;
         }
-        else{
-            tie++, pt++;
+        void write_team(int a, int b) {
+            if(a > b){
+                win++, pt += 3;
+            } else if(a < b){
+                lose++;
+            }
+            else{
+                tie++, pt++;
+            }
+            score += a, invscore += b;
         }
-        score += a, invscore += b;
-    }
-    team() {pt = 0; win = 0; lose = 0; tie = 0; score = 0; invscore = 0;};
     team(string name) {name = name; pt = 0; win = 0; lose = 0; tie = 0; score = 0; invscore = 0;}
 };
 
@@ -43,7 +46,7 @@ int main (){
     int T,nteams,games;
     scanf("%d\n",&T);
     char name[100];
-    char buffer[100];
+    char buf[100];
     while(T--){
         string cup;
         getline(cin, cup);
@@ -52,12 +55,16 @@ int main (){
         for (int i = 0; i < nteams; i++){
             string name;
             getline(cin, name);
-            team(name);
+
         }
         cin >> games;
         cin.ignore();
         while(games--){
-            //faltä
+            char name1[100], name2[100];
+            int score1, score2;
+            sscanf(buf, "%[^#]#%d@%d#%[^\n]", name1, &score1, &score2, name2);
+            team(name1).write_team(score1, score2);
+            team(name2).write_team(score2, score1);
         }
     }
 }
